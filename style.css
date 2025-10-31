@@ -1,0 +1,197 @@
+/* Base layout */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-rounded, "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  background: #ffe6f0;
+  color: #ff66b2;
+  display: grid;
+  place-items: center;
+}
+
+.app { width: 100%; padding: 16px; }
+
+.card, .success {
+  max-width: 620px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid #ffb3d9;
+  border-radius: 18px;
+  padding: 32px 32px 36px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(255, 102, 178, 0.18);
+}
+
+.hidden { display: none !important; }
+
+.cat-image {
+  width: 340px;
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 8px auto 12px;
+  user-select: none;
+}
+
+.title {
+  margin: 10px 0 18px;
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin: -2px 0 22px;
+  font-size: 20px;
+  color: #ff3399;
+  min-height: 22px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 10px;
+  min-height: 160px; /* reserve space for scaled Yes button */
+  align-items: center;
+}
+
+.btn {
+  appearance: none;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 14px 24px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+  will-change: transform;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn-yes {
+  background: #ff80bf;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(255, 128, 191, 0.35);
+}
+.btn-yes:hover { filter: brightness(1.04); }
+
+.btn-no {
+  background: #ffcce0;
+  color: #ff3399;
+  border-color: #ffb3d9;
+}
+.btn-no:hover { filter: brightness(1.03); }
+.btn-no:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Success view */
+.success-title { animation: fadeInScale 420ms ease forwards; }
+.rose-icon { font-size: 28px; margin-top: 10px; animation: pulse 1200ms ease-in-out infinite; }
+
+/* Animations */
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* Shake for No button */
+.shake {
+  animation: shake 320ms ease;
+}
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+/* Pulse grow for Yes on final */
+.grow-pop { animation: growPop 360ms ease; }
+@keyframes growPop {
+  0% { transform: scale(1); }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.subtitle-bump { animation: subtitleBump 280ms ease; }
+@keyframes subtitleBump {
+  0% { transform: translateY(2px); opacity: 0.4; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Floating hearts after Yes */
+.flying-rose {
+  position: fixed;
+  left: 50%;
+  bottom: -20px;
+  translate: -50% 0;
+  font-size: 18px;
+  pointer-events: none;
+  animation: fly 3.2s ease-in forwards;
+  filter: drop-shadow(0 4px 8px rgba(255, 102, 178, 0.35));
+}
+
+@keyframes fly {
+  0% { transform: translate(0, 0) scale(0.8); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translate(var(--dx, 0), -72vh) scale(1.4); opacity: 0; }
+}
+
+/* Rose + Beauty scene */
+.scene-rose {
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid #ffb3d9;
+  border-radius: 18px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(255, 102, 178, 0.18);
+}
+
+.scene-image { width: 100%; max-width: 360px; height: auto; margin: 0 auto; display: block; }
+.rose-col { position: relative; }
+
+.speech {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffe6f5;
+  color: #ff3399;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid #ffb3d9;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.left-in { animation: slideInLeft 520ms ease both; }
+.right-in { animation: slideInRight 520ms ease both; }
+
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: translateX(0); } }
+
+@media (max-width: 720px) {
+  .scene-rose { grid-template-columns: 1fr; gap: 12px; padding: 20px; }
+  .speech { position: static; transform: none; margin-top: 8px; }
+}
+
+

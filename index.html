@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will you forgive me?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <div id="card" class="card">
+      <img id="catImage" class="cat-image" src="images/sad1.png" alt="Sad cat" />
+      <h1 class="title">Will you forgive me?</h1>
+      <p id="noMessage" class="subtitle"></p>
+      <div class="actions">
+        <button id="yesBtn" class="btn btn-yes">Yes</button>
+        <button id="noBtn" class="btn btn-no">No</button>
+      </div>
+    </div>
+
+    <div id="success" class="success hidden">
+      <img class="cat-image" src="images/happy.png" alt="Happy cat" />
+      <h1 class="title success-title">I knew you would forgive me!</h1>
+      <div class="rose-icon" aria-hidden="true">🌹</div>
+    </div>
+
+    <div id="sceneRose" class="scene-rose hidden">
+      <div class="rose-col left">
+        <img class="scene-image left-in" src="images/rose.png" alt="Cat with rose" />
+        <div class="speech left">For you 🌹</div>
+      </div>
+      <div class="rose-col right">
+        <img class="scene-image right-in" src="images/beauty.png" alt="Beauty" />
+        <div class="speech right">Aww… Thank you!</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <noscript>JavaScript is required for the interactions.</noscript>
+</body>
+</html>
+
+
