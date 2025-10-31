@@ -32,10 +32,10 @@
   }
 
   const pleaMessages = [
-    'Pleaseee =((',
-    'Are you sure? :(',
-    'Pretty please with a heart 💗',
-    'Okay okay, I give up... 😿'
+    'Mình lập chuỗi mới là được mà, hứa ko làm mất chuỗi nữa =((',
+    'Lập cái mới khoe dc lên tiktok cho nó có danh phận, nó đỡ bỏ nhà như cái cũ đii',
+    'Ko tha ko dc, bấm vào web của t thì phải, phải gì?',
+    'Phải chịuuuu'
   ];
 
   function updateMessageOnNo() {
